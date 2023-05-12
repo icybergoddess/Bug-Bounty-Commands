@@ -1,0 +1,87 @@
+Scanning:
+	nmap -A -F -T1 <ip> -v
+	ffuf -w /usr/share/wordlists/dirb/common.txt -u http://tenet.htb/FUZZ -fc 403 -p 1
+	dirb <URL>
+	You can download seclist for more wordlist
+		git clone https://github.com/danielmiessler/SecLists.git
+	shodan
+		shodan init 9eePKan5rdUPMzFeDbIpdZUkytfuNVlQ
+		shodan info
+		shodan scan -h
+		shodan count wordpress
+		shodan count wordpress 1.4.7
+		shodan download wordpressfile "wordpress 1.4.7"
+		gunzip <filename>
+		gedit <filenmae>
+	to find IP of a specific domain
+		ping yahoo.com
+		host yahoo.com
+		you can use burp also
+	shodan
+		shodan host 74.6.231.21
+	https://bgp.he.net/
+
+Bug bounty checklist
+	https://github.com/sehno/Bug-bounty/blob/master/bugbounty_checklist.md
+========================================================================
+DNS Zone transfer
+	dig axfr @10.10.10.123 frienzone.red >>abc.txt
+	cat abc.txt | grep friendzone | grep IN | awk "{print $1}" | sort -u 
+
+Nslookup
+	nslookup www.sha.com
+whois
+	whois google.com
+theHarvester
+	theHarvester -d yahho.com -b bing
+
+Visit crt.sh to get all domain details
+Visit Wayback Machine to get all old versions details
+Can use wayback urls in cmd
+	go install github.com/tomnomnom/waybackurls@latest
+	cd ~/go/bin
+	ls
+	./waybackurls -h
+	gedit yahoo.txt
+		enter all domains and subdomains
+	cat yahoo.txt | ./waybackurls > yahoo.urls
+	To get subdomains
+		amass enum -passive -d yahoo.com
+	to get valid urls
+		httprobe
+		cat yahoo.urls | httprobe  
+		httprobe -h
+	sublister -subdomain enumeration
+		sudo apt install sublist3r
+		sublist3r -h
+		sublist3r -d yahoo.com
+	"If you want to open multiple urls use a plugin on firefox."
+	subdomain finder
+		amass -h
+		amass enum -
+		amass enum -d yahoo.com
+		amass enum -passive -d yahoo.com
+
+	dnszone transfer:
+		dnsrecon -d zonetransfer.me -t axfr
+=====================================================================================
+To find stack used in site:
+	Wappalyzer tool is used to find technolgoies and version in site.
+	using this we can find whether there is any vulnerability in that version.
+	Another tool is w3tech
+	Also you can inspect the code
+
+Port Scanner:
+	nmap -h
+	nmap -A -p35,45,80,445 10.10.10.215 -v
+
+Directory Listing:
+	sublist3r
+	ffuf -w http://FUZZ.yahoo.com -w /usr/share/wordlists/dirb/common.txt -p 1 -fc 301
+	dirb http://yahoo.com
+
+If you got Wordpress:
+	wpscan -help
+	wpscan --url https://www.zauca.com  -e ap --plugins-detection aggressive
+
+Hacker101 CTF challenge
